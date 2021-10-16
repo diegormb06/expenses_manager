@@ -6,9 +6,9 @@ class ChartBar extends StatelessWidget {
   final double percentage;
 
   ChartBar({
-    this.label,
-    this.value,
-    this.percentage,
+    required this.label,
+    required this.value,
+    required this.percentage,
   });
 
   @override
@@ -20,10 +20,11 @@ class ChartBar extends StatelessWidget {
           style: TextStyle(fontSize: 10),
         ),
         Container(
-          height: 60,
-          width: 10,
+          height: 80,
+          width: 12,
           margin: EdgeInsets.symmetric(horizontal: 10),
           child: Stack(
+            alignment: AlignmentDirectional.bottomStart,
             children: <Widget>[
               Container(
                 decoration: BoxDecoration(

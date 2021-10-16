@@ -1,10 +1,10 @@
 import 'package:expenses/components/chart_bar.dart';
-import 'package:expenses/models/transactions.dart';
+import 'package:expenses/models/transaction.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class Chart extends StatelessWidget {
-  final List<Transactions> recentTransactions;
+  final List<Transaction> recentTransactions;
 
   Chart(this.recentTransactions);
 
@@ -35,17 +35,16 @@ class Chart extends StatelessWidget {
   Widget build(BuildContext context) {
     groupedTransactions;
     return Card(
-      elevation: 6,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: groupedTransactions.map((tr) {
-          return ChartBar(
-            label: tr['day'],
-            value: tr['value'],
-            percentage: 0.6,
-          );
-        }).toList(),
-      ),
-    );
+        elevation: 5,
+        child: Container(
+          padding: EdgeInsets.symmetric(vertical: 5),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: groupedTransactions.map((Map<String, dynamic> tr) {
+              return ChartBar(
+                  label: tr['day'], value: tr['value'], percentage: 0.5);
+            }).toList(),
+          ),
+        ));
   }
 }

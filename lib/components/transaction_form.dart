@@ -40,9 +40,11 @@ class _TransactionFormState extends State<TransactionForm> {
               decoration: InputDecoration(labelText: 'Valor: (R\$)'),
               onSubmitted: (_) => _submitForm(),
             ),
-            FlatButton(
+            TextButton(
               child: Text('Cadastrar nova Transação'),
-              textColor: Colors.purple,
+              style: TextButton.styleFrom(
+                primary: Colors.purple,
+              ),
               onPressed: _submitForm,
             ),
           ],

@@ -1,16 +1,17 @@
-import 'package:expenses/models/transactions.dart';
+import 'package:expenses/models/transaction.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
 class TransactionList extends StatelessWidget {
-  final List<Transactions> transactions;
+  final List<Transaction> transactions;
 
   TransactionList(this.transactions);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 300,
+      height: 400,
+      color: Colors.blue,
       child: transactions.isEmpty
           ? Column(
               children: <Widget>[

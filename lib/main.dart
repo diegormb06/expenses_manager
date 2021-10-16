@@ -1,7 +1,7 @@
 import 'package:expenses/components/chart.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
-import 'package:expenses/models/transactions.dart';
+import 'package:expenses/models/transaction.dart';
 import 'components/transaction_form.dart';
 import 'components/transaction_list.dart';
 
@@ -13,8 +13,11 @@ class ExpensesApp extends StatelessWidget {
     return MaterialApp(
       home: MyHomeApp(),
       theme: ThemeData(
-        primarySwatch: Colors.purple,
-        accentColor: Colors.pink,
+        colorScheme: ColorScheme.fromSwatch(
+          primarySwatch: Colors.purple,
+        ).copyWith(
+          secondary: Colors.pink,
+        ),
         fontFamily: 'Quicksand',
         textTheme: ThemeData.light().textTheme.copyWith(
               headline6: TextStyle(
@@ -33,20 +36,38 @@ class MyHomeApp extends StatefulWidget {
 }
 
 class _MyHomeAppState extends State<MyHomeApp> {
-  final List<Transactions> _transactions = [
-    Transactions(
+  final List<Transaction> _transactions = [
+    Transaction(
       id: 't0',
-      title: 'conta antiga',
+      title: 'Beer',
       value: 400.90,
       date: DateTime.now().subtract(Duration(days: 30)),
     ),
-    Transactions(
+    Transaction(
       id: 't1',
-      title: 'Running shoes',
+      title: 'Runner shoes',
       value: 210.90,
       date: DateTime.now().subtract(Duration(days: 3)),
     ),
-    Transactions(
+    Transaction(
+      id: 't2',
+      title: 'Gás bill',
+      value: 50.5,
+      date: DateTime.now().subtract(Duration(days: 4)),
+    ),
+    Transaction(
+      id: 't0',
+      title: 'Beer',
+      value: 400.90,
+      date: DateTime.now().subtract(Duration(days: 30)),
+    ),
+    Transaction(
+      id: 't1',
+      title: 'Runner shoes',
+      value: 210.90,
+      date: DateTime.now().subtract(Duration(days: 3)),
+    ),
+    Transaction(
       id: 't2',
       title: 'Gás bill',
       value: 50.5,
@@ -54,7 +75,7 @@ class _MyHomeAppState extends State<MyHomeApp> {
     ),
   ];
 
-  List<Transactions> get _recentTransactions {
+  List<Transaction> get _recentTransactions {
     return _transactions.where((tr) {
       return tr.date.isAfter(DateTime.now().subtract(
         Duration(days: 7),
@@ -63,7 +84,7 @@ class _MyHomeAppState extends State<MyHomeApp> {
   }
 
   _addTransaction(title, value) {
-    final newTransaction = Transactions(
+    final newTransaction = Transaction(
       id: Random().nextDouble().toString(),
       title: title,
       value: value,
