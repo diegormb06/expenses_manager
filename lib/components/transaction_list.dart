@@ -11,7 +11,6 @@ class TransactionList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 400,
-      color: Colors.blue,
       child: transactions.isEmpty
           ? Column(
               children: <Widget>[
@@ -39,6 +38,9 @@ class TransactionList extends StatelessWidget {
                   child: Row(
                     children: <Widget>[
                       Container(
+                        constraints: BoxConstraints(
+                          minWidth: 130,
+                        ),
                         margin: EdgeInsets.symmetric(
                           horizontal: 15,
                           vertical: 10,

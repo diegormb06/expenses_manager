@@ -54,25 +54,7 @@ class _MyHomeAppState extends State<MyHomeApp> {
       title: 'Gás bill',
       value: 50.5,
       date: DateTime.now().subtract(Duration(days: 4)),
-    ),
-    Transaction(
-      id: 't0',
-      title: 'Beer',
-      value: 400.90,
-      date: DateTime.now().subtract(Duration(days: 30)),
-    ),
-    Transaction(
-      id: 't1',
-      title: 'Runner shoes',
-      value: 210.90,
-      date: DateTime.now().subtract(Duration(days: 3)),
-    ),
-    Transaction(
-      id: 't2',
-      title: 'Gás bill',
-      value: 50.5,
-      date: DateTime.now().subtract(Duration(days: 4)),
-    ),
+    )
   ];
 
   List<Transaction> get _recentTransactions {
@@ -93,7 +75,6 @@ class _MyHomeAppState extends State<MyHomeApp> {
     setState(() {
       _transactions.add(newTransaction);
     });
-
     Navigator.of(context).pop();
   }
 
