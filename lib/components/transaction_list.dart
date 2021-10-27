@@ -19,6 +19,7 @@ class TransactionList extends StatelessWidget {
                   'No expenses',
                   style: Theme.of(context).textTheme.headline6,
                 ),
+                SizedBox(height: 15),
                 Container(
                   height: 226,
                   width: double.infinity,

@@ -35,7 +35,7 @@ class _MyHomeAppState extends State<MyHomeApp> {
       id: 't0',
       title: 'Beer',
       value: 400.90,
-      date: DateTime.now().subtract(Duration(days: 30)),
+      date: DateTime.now().subtract(Duration(days: 2)),
     ),
     Transaction(
       id: 't1',
