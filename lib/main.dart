@@ -19,12 +19,6 @@ class ExpensesApp extends StatelessWidget {
           secondary: Colors.pink,
         ),
         fontFamily: 'Quicksand',
-        textTheme: ThemeData.light().textTheme.copyWith(
-              headline6: TextStyle(
-                fontFamily: 'OpenSans',
-                fontSize: 18,
-              ),
-            ),
       ),
     );
   }
