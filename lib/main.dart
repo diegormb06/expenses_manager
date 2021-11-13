@@ -48,6 +48,18 @@ class _MyHomeAppState extends State<MyHomeApp> {
       title: 'Gás bill',
       value: 50.5,
       date: DateTime.now().subtract(Duration(days: 4)),
+    ),
+    Transaction(
+      id: 't3',
+      title: 'Gás bill',
+      value: 50.5,
+      date: DateTime.now().subtract(Duration(days: 4)),
+    ),
+    Transaction(
+      id: 't4',
+      title: 'Gás bill',
+      value: 50.5,
+      date: DateTime.now().subtract(Duration(days: 4)),
     )
   ];
 
