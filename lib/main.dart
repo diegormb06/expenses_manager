@@ -49,18 +49,6 @@ class _MyHomeAppState extends State<MyHomeApp> {
       value: 50.5,
       date: DateTime.now().subtract(Duration(days: 4)),
     ),
-    Transaction(
-      id: 't3',
-      title: 'Gás bill',
-      value: 50.5,
-      date: DateTime.now().subtract(Duration(days: 4)),
-    ),
-    Transaction(
-      id: 't4',
-      title: 'Gás bill',
-      value: 50.5,
-      date: DateTime.now().subtract(Duration(days: 4)),
-    )
   ];
 
   List<Transaction> get _recentTransactions {
@@ -71,17 +59,23 @@ class _MyHomeAppState extends State<MyHomeApp> {
     }).toList();
   }
 
-  _addTransaction(title, value) {
+  _addTransaction(String title, double value, DateTime date) {
     final newTransaction = Transaction(
       id: Random().nextDouble().toString(),
       title: title,
       value: value,
-      date: DateTime.now(),
+      date: date,
     );
     setState(() {
       _transactions.add(newTransaction);
     });
     Navigator.of(context).pop();
+  }
+
+  _removeTransaction(String id) {
+    setState(() {
+      _transactions.removeWhere((element) => element.id == id);
+    });
   }
 
   _openTransactionFormModal(BuildContext context) {
@@ -108,7 +102,7 @@ class _MyHomeAppState extends State<MyHomeApp> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
             Chart(_recentTransactions),
-            TransactionList(_transactions),
+            TransactionList(_transactions, _removeTransaction),
           ],
         ),
       ),
